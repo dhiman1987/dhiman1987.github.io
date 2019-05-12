@@ -1,25 +1,577 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta  name="Description"   content="Profile for Java Angular FullStack developer">
-    <meta   name="keywords"   content="angular developer, java developer, software developer, javaangular, cloud developer, java angular cloude nosql">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+    <!-- font awesome icons-->
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" 
+    integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" 
+    integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" 
+    href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" 
+    integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" 
+    crossorigin="anonymous">
 
     <title>Dhiman Talapatra</title>
+
+    <style>
+
+    .highlight-icons{
+        color: #41D3BD;
+        font-size: 2rem;
+        padding: 1rem;
+      }
+
+      .contact-icons{
+        font-size: 1.5rem;
+      }
+
+      .social-icons{
+        color: #707070;
+        font-size:1.5rem; 
+      }
+
+      .my-text-primary{
+        color:#28536B;
+      }
+
+      .my-text-secondary{
+        color:#41D3BD;
+      }
+
+      .timeline{
+        border-right: 3px solid #41D3BD;
+        min-height: 6rem;
+      }
+
+      .timeline-header{
+        border-right: 3px solid #41D3BD;
+      }
+
+      .timeline-content{
+        padding-left:3rem;
+      }
+
+      .circle-element{
+        height:20px;
+        width:20px;
+        border-radius: 50%;
+        display:inline-block;
+        background: #41D3BD;
+        margin-right: -27px;
+      }
+
+      .big-circle-element{
+        height:57px;
+        width:57px;
+        border-radius: 50%;
+        display:inline-block;
+        background: #41D3BD;
+        margin-right: -45px;
+        padding-top: 15px;
+        margin-top:-10px;
+      }
+
+      .big-circle-element-no-bg{
+        height:57px;
+        width:57px;
+        border-radius: 50%;
+        display:inline-block;
+        margin-right: -45px;
+        padding-top: 15px;
+        margin-top:-10px;
+      }
+
+      .big-circle-element-no-margin{
+        height:57px;
+        width:57px;
+        border-radius: 50%;
+        display:inline-block;
+        background: #41D3BD;
+        padding-top: 15px;
+        text-align: center;
+      }
+
+      .on-top-left{
+        z-index: 100; 
+        top:0; 
+        left:0;
+        position: absolute;
+        float: left;
+      }
+
+
+      .on-top-right{
+        z-index: 100; 
+        top:0; 
+        right:0;
+        position: absolute;
+        margin-right:1vm;
+      }
+
+      .bold-text{
+        font-weight: 700;
+        font-size: 3vm;
+      }
+
+      .progress-mod{
+        height:1.75rem;
+        margin:1rem 0 1rem 0;
+      }
+
+      .progress-bar-mod{
+        background-color: #41D3BD;
+        color:#28536b;
+        text-align: left; 
+        padding-left:1rem;
+        font-size: 0.75rem;
+      }
+
+
+    </style>
   </head>
   <body>
-    <div class="jumbotron bg-dark text-light">
-            <img src="https://pbs.twimg.com/profile_images/683693492065845248/lHxM09jl_400x400.jpg" class="rounded float-right" alt="profile picture" style="height:150px; width:150px">
-            <h2 class="text-muted">Hi, this is</h2>
-            <h1>Dhiman !</h1>
-            <a href="https://github.com/dhiman1987"><span class="badge badge-light">Github</span></a>
-            <a href="https://twitter.com/dhimantalapatra"><span class="badge badge-light">Twitter</span></a>
+
+      <div class="on-top-right">
+          <ul class="list-group list-group-horizontal justify-content-center float-right" style="z-index: 1000;">
+            <a class="list-group-itvm" style="background: inherit; border:0; padding:1rem;" href="https://www.facebook.com/dhiman1987" target="_blank"><i class="fab fa-facebook social-icons"></i></a>
+            <a class="list-group-itvm" style="background: inherit; border:0; padding:1rem;" href="https://www.twitter.com/dhimantalapatra" target="_blank"><i class="fab fa-twitter social-icons"></i></a>
+            <a class="list-group-itvm" style="background: inherit; border:0; padding:1rem;" href="https://www.github.com/dhiman1987" target="_blank"><i class="fab fa-github social-icons"></i></a>
+        </ul>
+        </div>
+
+    <!-- for mobile devices -->
+    <header class="d-block d-md-none">
+        <img src="./banner-bg.png" alt="banner-image" width="100%" height="100%" />
+        <div class="on-top-left">
+        <h1 class="font-weight-bolder" style="font-size: 9vw; color: #fff">DHIMAN</h1>
+        <h4 class="font-weight-lighter" style="font-size: 4.5vw; color: #fff">Full Stack Developer</h3>
+        </div>
+        <div class="container-fluid text-center">
+   
+                    <i class="fab fa-angular highlight-icons"></i>
+                    <i class="fab fa-js highlight-icons"></i>
+                    <i class="fab fa-html5 highlight-icons"></i>
+                    <i class="fab fa-css3-alt highlight-icons"></i>
+                    <i class="fab fa-java highlight-icons"></i>
+                    <i class="fas fa-database highlight-icons"></i>
+                    <i class="fas fa-cloud highlight-icons"></i>
+                    <i class="fab fa-android highlight-icons"></i>
     </div>
+    <div class="container text-center">
+      
+    <button  class="btn btn-lg btn-success" style="margin-bottom: 5%; background-color: #41D3BD; border-color: #41D3BD">
+        <i class="fas fa-file-download"></i> &nbsp;&nbsp;
+    Resume
+  </button>
+  <button  class="btn btn-lg btn-secondary" style="margin-bottom: 5%; background-color: #747474; " class="btn btn-success float-right">
+      <i class="fas fa-file-download"></i> &nbsp;&nbsp;
+  Contact
+</button>
+    </div>
+
+    </header>
+    <!-- for Desktop view -->
+    <header class="d-none d-md-block">
+      <div class="row" style="background-color:#152b38; color:#fff">
+        <div class="col-md-6 col-lg-8">
+          <div class="container-fluid">
+            <div class="text-center" style="padding-top:2vm;">
+              <h1 class="font-weight-bolder" style="font-size: 4.5vw;">DHIMAN</h1>
+              <h4 class="font-weight-lighter" style="font-size: 2.25vw;">Full Stack Developer</h3>
+                <div class="container-fluid text-center">
+   
+                    <i class="fab fa-angular highlight-icons"></i>
+                    <i class="fab fa-js highlight-icons"></i>
+                    <i class="fab fa-html5 highlight-icons"></i>
+                    <i class="fab fa-css3-alt highlight-icons"></i>
+                    <i class="fab fa-java highlight-icons"></i>
+                    <i class="fas fa-database highlight-icons"></i>
+                    <i class="fas fa-cloud highlight-icons"></i>
+                    <i class="fab fa-android highlight-icons"></i>
+                </div>
+                <div class="row align-items-end">
+                    <div class="col-lg-9">
+                            <div class="float-left text-left container">
+
+                                            <h6><i class="fas fa-mobile contact-icons"> </i> +91 9874380099</h6>
+                                            <h6><i class="fas fa-at contact-icons"> </i> dhiman.talapatra@gmail.com</h6>
+                                            <h6><i class="fas fa-map-marker-alt contact-icons"> </i> Barrackpore, Kolkata 700122, India</h>
+                                          
+                            </div>
+                    </div>
+                    <div class="col-lg-3">
+                            <button  class="btn btn-lg btn-success float-right" style="margin-bottom: 5%; background-color: #41D3BD; border-color: #41D3BD ">
+                                    <i class="fas fa-file-download"></i> &nbsp;&nbsp;
+                                Resume
+                            </button>
+                        </div>
+                </div>
+                
+                
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" style="padding-right:0%">      
+          <img src="./banner-bg.png" alt="banner-image" width="100%" height="100%"/>
+        </div>
+      </div>
+    </header>
+    <main style="margin-top: 2rem;">
+
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="row">
+              <div class="col-5 text-center timeline-header">
+                <h4></h4>
+                <div class="big-circle-element float-right">
+                    <i class="fas fa-laptop" style="color:#fff; font-size: 1.75rem;"></i>
+                </div>
+              </div>
+              <div class="col-7 timeline-content">
+                <h1 class="my-text-primary bold-text">Work</h1>
+              </div>
+              </div>
+         
+          <div class="row">
+          <div class="col-5 text-center timeline">
+            <h5>Jul 2018 - Present</h5>
+            <div class="circle-element float-right"></div>
+          </div>
+          <div class="col-7 timeline-content">
+            <h5 class="my-text-primary">Senior Associate at Cognizant</h5>
+              <p>
+                Offshore lead/ Scrum Master and of 11 mvmber team, 
+                Occasional Academy Trainer Full Stack developer,
+                UX developer, Automation Lead
+              </p>
+            
+          </div>
+          </div>
+         
+          <div class="row">
+              <div class="col-5 text-center timeline">
+                <h5>Dec 2014 - Jun 2018</h5>
+                <div class="circle-element float-right"></div>
+              </div>
+              <div class="col-7 timeline-content">
+                <h5 class="my-text-primary">Associate at Cognizant</h5>
+                  <p>
+                    Offshore lead 5 member team, Occasional Academy Trainer Full Stack developer, UX developer
+                  </p>
+                
+              </div>
+          </div>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+         
+          <div class="row">
+          <div class="col-5 text-center timeline">
+            <h5>Apr 2014 - Dec 2014</h5>
+            <div class="circle-element float-right"></div>
+          </div>
+          <div class="col-7 timeline-content">
+            <h5 class="my-text-primary">Tech Lead at HCL</h5>
+              <p>
+                Team lead 3 member team, Full stack Java Developer
+              </p>
+            
+          </div>
+          </div>
+          <div class="row">
+              <div class="col-5 text-center timeline">
+                <h5>Oct 2012 - Mar 2014</h5>
+                <div class="circle-element float-right"></div>
+
+              </div>
+              <div class="col-7 timeline-content">
+                <h5 class="my-text-primary">Software Engineer at HCL</h5>
+                  <p>
+                    Full stack Java Developer, Selenium automation developer
+                  </p>
+                
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-5 text-center timeline">
+                <h5>Nov 2010 - Sep 2012</h5>
+                <div class="circle-element float-right"></div>
+
+              </div>
+              <div class="col-7 timeline-content">
+                  <h5 class="my-text-primary">Systvms Engineer at Infosys</h5>
+                  <p>
+                    Java developer in Finacle Banking solution
+                  </p>
+                
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col-5 text-center timeline">
+                <h5>Feb 2010 - Oct 2010</h5>
+                <div class="circle-element float-right"></div>
+
+              </div>
+              <div class="col-7 timeline-content">
+                <h5 class="my-text-primary">Trainee at Infosys</h5>
+                  <p>
+                    Trainee in the Finacle Banking solution (Java) stream
+                  </p>
+                
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-5 text-center timeline-header">
+              <h4></h4>
+              <div class="big-circle-element float-right">
+                  <i class="fas fa-graduation-cap" style="color:#fff; font-size: 1.75rem;"></i>
+              </div>
+            </div>
+            <div class="col-7 timeline-content">
+              <h1 class="my-text-primary bold-text">Education</h1>
+            </div>
+          </div>
+       
+        <div class="row">
+        <div class="col-5 text-center timeline">
+          <h5>2005 - 2009</h5>
+          <div class="circle-element float-right"></div>
+        </div>
+        <div class="col-7 timeline-content">
+          <h5 class="my-text-primary">B.Tech , in AIEE (WBUT)</h5>
+            <p>
+            Guru Nanak Institute of Technology, Sodepur
+            </p>
+          
+        </div>
+        </div>
+       
+        <div class="row">
+            <div class="col-5 text-center timeline">
+              <h5>2003 - 2005</h5>
+              <div class="circle-element float-right"></div>
+            </div>
+            <div class="col-7 timeline-content">
+              <h5 class="my-text-primary">Higher Secondary Education (ISC)</h5>
+                <p>
+                 St Xavier Institution, Sodepur
+                </p>
+              
+            </div>
+        </div>
+  
+       
+        <div class="row">
+        <div class="col-5 text-center timeline">
+          <h5>2001 - 2003</h5>
+          <div class="circle-element float-right"></div>
+        </div>
+        <div class="col-7 timeline-content">
+          <h5 class="my-text-primary">Secondary Education (ICSE)</h5>
+            <p>
+              Douglas Memorial Higher Secondary school, Barrackpore
+            </p>
+          
+        </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-5 text-center timeline-header">
+            <h3>30 April 1987</h3>
+            <div class="big-circle-element-no-bg float-right">
+                <i class="fas fa-baby" style="color:#41D3BD; font-size: 5rem;"></i>
+            </div>
+          </div>
+          <div class="col-7 timeline-content">
+            <h1 class="my-text-primary bold-text">Born</h1>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        </div>
+        <div class="col-md-6">
+            <div style="border: 1px solid #B9B9B9; border-radius: 5px; background-color: #F5F5F5; margin:1rem; padding:1rem">
+                <div class="container">
+                    
+                  <div class="row">
+                      <div class="big-circle-element-no-margin" style="margin-right:0.5rem;">
+                          <i class="fas fa-wrench" style="color:#fff; font-size: 1.75rem;"></i>
+                      </div>
+                    <h1 class="my-text-primary bold-text"> Skills</h1>
+                  </div>
+                  <hr/>
+                  <div class="row">
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <h5 class="text-muted">Web Technologies</h5>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">Angular</div>
+                    </div>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 20%">React</div>
+                    </div>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">Bootstrap</div>
+                    </div>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">HTML / CSS / SCSS </div>
+                    </div>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">JavaScript / TypeScript </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                      <h5 class="text-muted">Java</h5>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">Core Java</div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">Spring</div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">JSF</div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">JPA / Hibernate </div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">SOAP / REST </div>
+                      </div>
+                    </div>
+
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                        <h5 class="text-muted">Cloud Vendors</h5>
+                        <div class="progress progress-mod">
+                            <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">Firebase</div>
+                        </div>
+                        <div class="progress progress-mod">
+                            <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">Heroku</div>
+                        </div>
+                        <div class="progress progress-mod">
+                            <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 40%">Azure</div>
+                        </div>
+                        <div class="progress progress-mod">
+                            <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 40%">AWS </div>
+                        </div>
+                        <div class="progress progress-mod">
+                            <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 40%">MongoDB Atlas </div>
+                        </div>
+                   </div>
+
+
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                    <h5 class="text-muted">Database</h5>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">Oracle</div>
+                    </div>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">MySQL</div>
+                    </div>
+                    <div class="progress progress-mod">
+                        <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">MongoDB</div>
+                    </div>
+                  </div>
+
+
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                      <h5 class="text-muted">Mobile Technologies</h5>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">Android</div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                      <h5 class="text-muted">Other Languages</h5>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">Kotlin</div>
+                      </div>
+                  </div>
+
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                      <h5 class="text-muted">Source Control</h5>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 60%">Git</div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 40%">SVN</div>
+                      </div>
+                  </div>
+
+
+                  <div class="col-md-6 col-lg-4 col-xlg-3">
+                      <h5 class="text-muted">IT Methodologies</h5>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">Agile</div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 80%">Waterfall</div>
+                      </div>
+                      <div class="progress progress-mod">
+                          <div class="progress-bar progress-bar-mod"  role="progressbar" style="width: 20%">DevOps</div>
+                      </div>
+                    </div>
+
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+    </main>
+    <footer class="d-block d-md-none" style="background-color: #28536B; color:#fff; padding: 2rem; margin-top: 2rem;">
+        <h5><i class="fas fa-mobile contact-icons"> </i> +91 9874380099</h5>
+        <h5><i class="fas fa-at contact-icons"> </i> dhiman.talapatra@gmail.com</h5>
+        <h5><i class="fas fa-map-marker-alt contact-icons"> </i> Barrackpore, Kolkata 700122, India</h2>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
