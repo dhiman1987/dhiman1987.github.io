@@ -118,14 +118,15 @@ h3 {
 .skillIcons{
     padding: 1rem 0rem 1rem 0rem;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
 }
 
 
 .skillIcons img {
     width: 2.25rem;
     height: 2.25rem;
+    margin: 1.5rem;
 }
 
 .chatIcon {
