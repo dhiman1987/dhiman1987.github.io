@@ -103,11 +103,16 @@ h3 {
 
 .imageContainer{
     text-align: center;
+    align-items: center;
 }
 
 .aboutMe{
     display: grid;
-    grid-template-columns: 2fr 1fr
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.aboutMeText{
+    font-size: 1.25rem;
 }
 
 .skillIcons{
@@ -116,6 +121,7 @@ h3 {
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 
 .skillIcons img {
     width: 2.25rem;
@@ -129,7 +135,7 @@ h3 {
 
 .chatSection{
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
     text-align: center;
     background-color: var(--chat-section-background);
     border: 1px solid var(--chat-section-border);
@@ -153,7 +159,7 @@ h3 {
     align-content: center;
 }
 
-.primaryButton :hover {
+.primaryButton:hover {
     background-color: var(--primary-color-dark);
 }
 
