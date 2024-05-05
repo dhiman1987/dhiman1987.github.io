@@ -141,7 +141,7 @@ h3 {
     cursor: pointer;
 }
 
-button {
+.primaryButton {
     background-color: var(--primary-color);
     color: var(--primary-background);
     padding: 0.9rem;
@@ -153,7 +153,7 @@ button {
     align-content: center;
 }
 
-button:hover {
+.primaryButton :hover {
     background-color: var(--primary-color-dark);
 }
 
@@ -161,7 +161,8 @@ button:hover {
     background-color: var(--secondary-background);
     display: grid;
     gap: 2rem;
-    grid-template-columns: 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr;*/
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     padding: 2rem;
 
 }
@@ -207,4 +208,5 @@ footer{
     background-color: var(--secondary-background);
     text-align: center;
     padding: 1rem;
+    font-size: 0.9rem;
 }
