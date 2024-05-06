@@ -84,20 +84,17 @@ h3 {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
     gap: 0.5rem;
+    margin-left: 1rem;
 }
 
 @media(min-width: 600px){
     .socialMedia {
-        grid-template-columns: repeat(4, 1fr); 
-        
+        grid-template-columns: repeat(4, 1fr);   
     }
     .topBar {
         grid-template-columns: 1fr 9fr 2fr; 
     }
 }
-
-
-
 
 
 .mainSection {
@@ -187,10 +184,8 @@ h3 {
     background-color: var(--secondary-background);
     display: grid;
     gap: 2rem;
-    /*grid-template-columns: 1fr 1fr;*/
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 2rem;
-
 }
 
 .work, .cetifications{
