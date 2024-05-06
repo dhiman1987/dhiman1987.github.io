@@ -52,8 +52,8 @@ a:hover {
 }
 
 .primaryIcon{
-    height: 2rem;
-    width: 2rem;
+    height: 1.75rem;
+    width: 1.75rem;
 }
 
 section{
@@ -75,16 +75,30 @@ h3 {
 
 .topBar {
     display: grid;
-    grid-template-columns: 0.5fr 5fr 1.5fr;
     background-color: var(--top-bar-backfround);
-    padding: 0.75rem;
+    grid-template-columns: 2fr 7fr 3fr; 
+    padding:1rem;
 }
 
 .socialMedia {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(2, 1fr); 
     gap: 0.5rem;
 }
+
+@media(min-width: 600px){
+    .socialMedia {
+        grid-template-columns: repeat(4, 1fr); 
+        
+    }
+    .topBar {
+        grid-template-columns: 1fr 9fr 2fr; 
+    }
+}
+
+
+
+
 
 .mainSection {
     background-color:var(--primary-background);
@@ -110,7 +124,7 @@ h3 {
     display: grid;
 }
 
-@media(min-width: 1000px){
+@media(min-width: 700px){
     .aboutMe{
         grid-template-columns: 2fr 1fr;
     }
@@ -174,7 +188,7 @@ h3 {
     display: grid;
     gap: 2rem;
     /*grid-template-columns: 1fr 1fr;*/
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     padding: 2rem;
 
 }
@@ -190,16 +204,26 @@ h3 {
     border: 1px solid var(--border);
     padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr 4fr;
     gap: 0.5rem;
+    text-align: center;
+}
+
+@media (min-width: 500px){
+    .workCard{
+        grid-template-columns: 1fr 2fr;
+        text-align: left;
+    }
 }
 
 .orgLogo{
     width: 5rem;
+    display:block;
 }
 
 .orgLogoContainer{
-    align-content: center;
+    text-align: center;
+    margin:auto;
+
 }
 
 .exp{
@@ -210,6 +234,7 @@ h3 {
 .expItem{
     display: grid;
     grid-template-columns: 3fr 2fr;
+    text-align: left;
 }
 
 .workCard h4{
