@@ -4,12 +4,25 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My GPT Chat</title>
-    <script type="module" crossorigin src="assets/index-c52e3c80.js"></script>
-    <link rel="stylesheet" href="assets/index-e2856629.css">
+    <title>Dhiman Talapatra - Ask Bol2</title>
+    <script type="module" crossorigin src="chat/index-7b97962c.js"></script>
+    <link rel="stylesheet" href="chat/index-2491a358.css">
   </head>
   <body>
     <div id="root"></div>
     
   </body>
+  <script>
+    let theme = localStorage.getItem("theme");
+    if(!theme){
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        theme = "dark";
+      } else {
+        theme = "light";
+      }
+    }
+    console.log("Setting theme as "+theme);
+    localStorage.setItem("theme",theme);
+    document.documentElement.setAttribute("data-theme", theme);
+</script>
 </html>

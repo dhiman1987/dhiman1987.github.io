@@ -1,13 +1,19 @@
+const darkModeBtn = document.getElementById("darkModeBtn");
+const lightModeBtn = document.getElementById("lightModeBtn");
+const chatDark = document.getElementById("chatDark");
+const chatLight = document.getElementById("chatLight");
+
+darkModeBtn.addEventListener("click",toggleColorTheme);
+lightModeBtn.addEventListener("click",toggleColorTheme);
+
 function detectColorScheme() {
-    var theme = "light"; 
-    const darkModeBtn = document.getElementById("darkModeBtn");
-    const lightModeBtn = document.getElementById("lightModeBtn");
-    const chatDark = document.getElementById("chatDark");
-    const chatLight = document.getElementById("chatLight");
-    darkModeBtn.addEventListener("click",toggleColorTheme);
-    lightModeBtn.addEventListener("click",toggleColorTheme);
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      theme = "dark";
+    let theme = localStorage.getItem("theme");
+    if(!theme){
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        theme = "dark";
+      } else {
+        theme = "light";
+      }
     }
     setTheme(theme);
   }
@@ -26,12 +32,14 @@ function detectColorScheme() {
   function setTheme(theme){
     console.debug("switching theme to "+theme);
     if (theme == "dark") {
+        localStorage.setItem("theme","dark");
         document.documentElement.setAttribute("data-theme", "dark");
         lightModeBtn.style.display = "block";
         darkModeBtn.style.display = "none";
         chatDark.style.display = "inline";
         chatLight.style.display = "none";
       } else {
+        localStorage.setItem("theme","light");
         document.documentElement.setAttribute("data-theme", "light");
         lightModeBtn.style.display = "none";
         darkModeBtn.style.display = "block";
@@ -41,3 +49,4 @@ function detectColorScheme() {
   }
   
   detectColorScheme();
+
