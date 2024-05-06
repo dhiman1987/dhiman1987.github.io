@@ -52,8 +52,8 @@ a:hover {
 }
 
 .primaryIcon{
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
 }
 
 section{
@@ -108,7 +108,12 @@ h3 {
 
 .aboutMe{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+@media(min-width: 1000px){
+    .aboutMe{
+        grid-template-columns: 2fr 1fr;
+    }
 }
 
 .aboutMeText{
