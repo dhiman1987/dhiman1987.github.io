@@ -1,0 +1,545 @@
+
+:root {
+    color-scheme: light dark;
+
+    /* Light palette */
+    --light-bg: #ffffff;
+    --light-wrapper-bg: #f8f8f8;
+    --light-card-bg: #ffffff;
+    --light-text-color: #0f172a;
+    --light-muted: #6b7280;
+    --light-border: #e6e6e6;
+    --light-footer-bg: rgba(255, 255, 255, 0.9);
+    --light-primary-color: #0dca8c;
+    --light-primary-dark-color: #1cad7c;
+    --light-primary-light-color: #e4fbf3;
+    --light-danger: #b02020;
+    --light-danger-light: #ffd5d5;
+    --light-done-green: #005c31;
+    --light-done-light-green: #d5fcea;
+    --light-reschedule-purple: #3d1292;
+    --light-reschedule-light-purple: #e1d3fe;
+    --light-overdue-orange: #7f3812;
+    --light-overdue-light-orange: #fee0d3;
+    --light-button-grey: #3c3c3c;
+    --light-button-light-grey: #eeeeee;
+
+    /* Dark palette */
+    --dark-bg: #111715;
+    --dark-wrapper-bg: #19211e;
+    --dark-card-bg: #202a26;
+    --dark-text-color: #e8eeeb;
+    --dark-muted: #a0ada7;
+    --dark-border: #35423c;
+    --dark-footer-bg: rgba(17, 23, 21, 0.9);
+    --dark-primary-color: #35d6a0;
+    --dark-primary-dark-color: #20b982;
+    --dark-primary-light-color: #173d31;
+    --dark-danger: #ff8585;
+    --dark-danger-light: #4a2528;
+    --dark-done-green: #b4f2d2;
+    --dark-done-light-green: #19402e;
+    --dark-reschedule-purple: #d0b4ff;
+    --dark-reschedule-light-purple: #473f55;
+    --dark-overdue-orange: #ffc08a;
+    --dark-overdue-light-orange: #604b3d;
+    --dark-button-grey: #e1e7e3;
+    --dark-button-light-grey: #34403b;
+
+    /* Resolve semantic colors from the active color scheme */
+    --bg: light-dark(var(--light-bg), var(--dark-bg));
+    --wrapper-bg: light-dark(var(--light-wrapper-bg), var(--dark-wrapper-bg));
+    --card-bg: light-dark(var(--light-card-bg), var(--dark-card-bg));
+    --text-color: light-dark(var(--light-text-color), var(--dark-text-color));
+    --muted: light-dark(var(--light-muted), var(--dark-muted));
+    --border: light-dark(var(--light-border), var(--dark-border));
+    --footer-bg: light-dark(var(--light-footer-bg), var(--dark-footer-bg));
+    --primary-color: light-dark(var(--light-primary-color), var(--dark-primary-color));
+    --primary-dark-color: light-dark(var(--light-primary-dark-color), var(--dark-primary-dark-color));
+    --primary-light-color: light-dark(var(--light-primary-light-color), var(--dark-primary-light-color));
+    --danger: light-dark(var(--light-danger), var(--dark-danger));
+    --danger-light: light-dark(var(--light-danger-light), var(--dark-danger-light));
+    --done-green: light-dark(var(--light-done-green), var(--dark-done-green));
+    --done-light-green: light-dark(var(--light-done-light-green), var(--dark-done-light-green));
+    --reschedule-purple: light-dark(var(--light-reschedule-purple), var(--dark-reschedule-purple));
+    --reschedule-light-purple: light-dark(var(--light-reschedule-light-purple), var(--dark-reschedule-light-purple));
+    --overdue-orange: light-dark(var(--light-overdue-orange), var(--dark-overdue-orange));
+    --overdue-light-orange: light-dark(var(--light-overdue-light-orange), var(--dark-overdue-light-orange));
+    --button-grey: light-dark(var(--light-button-grey), var(--dark-button-grey));
+    --button-light-grey: light-dark(var(--light-button-light-grey), var(--dark-button-light-grey));
+
+    --radius: 8px;
+    --shadow: 0 4px 12px rgba(16,24,40,0.08);
+    --max-width: 960px;
+}
+
+@media (prefers-color-scheme: light) {
+    :root:has(#theme-toggle:checked) {
+        color-scheme: dark;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:has(#theme-toggle:checked) {
+        color-scheme: light;
+    }
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+	background: var(--bg);
+    color: var(--text-color);
+	-webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+	/* let wrapper grow to fill available space so footer can sit at bottom */
+	flex: 1 1 auto;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+    background-color: var(--bg);
+	width: min(100%, var(--max-width));
+	margin: 0 auto;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer {
+	/* remove sticky positioning and let flexbox place footer at the end */
+	position: static;
+    flex-shrink: 0;
+	margin-top: auto;
+	width: min(100%, var(--max-width));
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+    background: var(--footer-bg);
+	border-top: 1px solid var(--border);
+	color: var(--muted);
+	text-align: center;
+	backdrop-filter: blur(8px);
+}
+
+.importExportSection{
+    color: var(--muted);
+}
+
+.heroText {
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.linkButton {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	color: var(--muted);
+	text-decoration: underline;
+	cursor: pointer;
+	font: inherit;
+	line-height: 1;
+}
+
+.themeToggleInput {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.themeToggleButton {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: var(--button-grey);
+    cursor: pointer;
+}
+
+.themeToggleButton svg {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
+}
+
+.themeToggleInput:focus-visible + .themeToggleButton {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.themeToggleInput:checked + .themeToggleButton .sunIcon {
+    display: block;
+}
+
+.themeToggleInput:checked + .themeToggleButton .moonIcon {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .themeToggleButton .sunIcon {
+        display: block;
+    }
+
+    .themeToggleButton .moonIcon {
+        display: none;
+    }
+
+    .themeToggleInput:checked + .themeToggleButton .sunIcon {
+        display: none;
+    }
+
+    .themeToggleInput:checked + .themeToggleButton .moonIcon {
+        display: block;
+    }
+}
+
+/* Header layout: hero on the left, import/export on the right */
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.heroSection {
+	display: flex;
+	flex-direction: column;
+}
+
+.importExportSection {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.todoCard {
+	background: var(--card-bg);
+	padding: 0.5rem;
+    margin: 0.25rem 0rem 0.25rem 0rem;
+	border-radius: calc(var(--radius) * 1.5);
+	box-shadow: 0 6px 18px rgba(16,24,40,0.04);
+	border: 1px solid rgba(16,24,40,0.03);
+	color: inherit;
+    display: grid;
+    grid-template-columns: minmax(0, 3.5fr) minmax(0, 1.5fr);
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.dayGroup {
+    border-radius: 5px;
+    margin: 1rem;
+    padding: 0.75rem;
+    background-color: var(--wrapper-bg);
+}
+.currentDayGroup {
+    border : 1px solid var(--primary-color);
+    border-left: 5px solid var(--primary-color);
+    background-color: var(--bg);
+    border-radius: 5px;
+    padding: 0.75rem;
+    margin: 1rem;
+}
+
+.todoCardMeta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.day {
+ color: var(--muted);
+}
+
+.todayBadge {
+    color: var(--primary-color);
+    font-size: 12px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-light-color);
+    padding:5px;
+    border-radius: 0.5rem;
+}
+
+/* shared badge styles (size, weight, padding, radius, margin) */
+.doneBadge,
+.rescheduleBadge,
+.overdueBadge {
+    font-size: 0.5rem;
+    font-weight: 700;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0.25rem 0.25rem 0rem;
+}
+
+.doneBadge { color: var(--done-green); background-color: var(--done-light-green); }
+.rescheduleBadge { color: var(--reschedule-purple); background-color: var(--reschedule-light-purple); }
+.overdueBadge { color: var(--overdue-orange); background-color: var(--overdue-light-orange); }
+
+.todoTitle {
+    font-size: 1rem;
+    line-height: 1.4;
+    min-width: 0;
+    height: 1.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    interpolate-size: allow-keywords;
+    transition: height 450ms cubic-bezier(0.4, 0, 0.2, 1), white-space 0s linear 450ms;
+    transition-behavior: normal, allow-discrete;
+}
+
+.todoTitle:hover {
+    height: auto;
+    text-overflow: clip;
+    white-space: normal;
+    transition-delay: 0s, 0s;
+}
+
+.dayGroup .todoTitle {
+    color: var(--muted);
+}
+
+.currentDayGroup .todoTitle {
+    font-weight: 600;
+}
+
+.todoCard.isDone .todoTitle {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.badges {
+	display: flex;
+}
+
+.todoCardMeta .badges > :last-child {
+    margin-right: 0;
+}
+
+.actionSection {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+/* grouped icon styles */
+.doneButton .icon,
+.rescheduleButton .icon,
+.deleteButton .icon,
+.cancelButton .icon,
+.addNoteButton .icon {
+    width: 1rem;
+    height: 1rem;
+    display: block;
+    fill: currentColor;
+    flex: 0 0 auto;
+}
+
+/* shared base for action buttons (layout, sizing, transitions) */
+.doneButton,
+.rescheduleButton,
+.deleteButton,
+.cancelButton {
+    background: var(--button-light-grey);
+    color: var(--button-grey);
+    border: none;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: width 200ms ease, background 180ms ease, color 180ms ease;
+}
+
+.addNoteButton {
+    background: var(--primary-color);
+    color: var(--bg);
+    border: none;
+    padding: 0;
+    width: 120px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.addNoteButton, .btnLabel{
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-left: 5px;
+}
+
+.addNoteButton:hover {
+    background-color: var(--primary-dark-color);
+}
+
+/* shared inline label revealed by expanding the button */
+.doneButton .btnLabel,
+.rescheduleButton .btnLabel,
+.deleteButton .btnLabel,
+.cancelButton .btnLabel {
+    display: inline-block;
+    margin-left: 0;
+    max-width: 0;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: max-width 220ms ease, opacity 180ms ease, transform 180ms ease;
+    pointer-events: none;
+    white-space: nowrap;
+    font-size: 0.75rem;
+    line-height: 1;
+    overflow: hidden;
+}
+
+/* expand width on hover/focus to reveal label (shared) */
+.doneButton:hover,
+.doneButton:focus-visible,
+.rescheduleButton:hover,
+.rescheduleButton:focus-visible,
+.cancelButton:hover,
+.cancelButton:focus-visible,
+.deleteButton:hover,
+.deleteButton:focus-visible {
+    width: 120px;
+}
+
+.doneButton:hover,
+.doneButton:focus-visible {
+    background: var(--done-green);
+    color: var(--done-light-green)
+}
+
+.rescheduleButton:hover,
+.rescheduleButton:focus-visible {
+    background: var(--reschedule-purple);
+    color: var(--reschedule-light-purple)
+}
+
+.cancelButton:hover,
+.cancelButton:focus-visible {
+    background: var(--button-grey);
+    color: var(--button-light-grey)
+}
+
+.deleteButton:hover,
+.deleteButton:focus-visible {
+    background: var(--danger);
+    color: var(--danger-light);
+}
+
+.doneButton .icon,
+.rescheduleButton .icon,
+.cancelButton .icon,
+.deleteButton .icon {
+    transition: color 180ms ease, opacity 180ms ease, transform 180ms ease;
+}
+
+/* shared label reveal on hover/focus */
+.doneButton:hover .btnLabel,
+.doneButton:focus-visible .btnLabel,
+.rescheduleButton:hover .btnLabel,
+.rescheduleButton:focus-visible .btnLabel,
+.deleteButton:hover .btnLabel,
+.deleteButton:focus-visible .btnLabel,
+.cancelButton:hover .btnLabel,
+.cancelButton:focus-visible .btnLabel {
+    opacity: 1;
+    transform: translateX(0);
+    margin-left: 8px;
+    max-width: 160px;
+}
+
+.addNoteSection {
+    text-align: center;
+    flex-shrink: 0;
+    padding: 0.5rem;
+    width:95%;
+    margin: 1rem;
+    border-radius: calc(var(--radius) * 1.5);
+    background-color: var(--primary-color);
+}
+
+.addNoteSecondRow{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.addNote {
+    width:100%;
+    height: 2.5rem;
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 0.25rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.addNote:focus {
+    outline: none;
+}
+
+.todoDatePicker{
+    border: none;
+    background-color: var(--primary-color);
+    color:#fff;
+    padding:0.5rem;
+    border-radius: 8px;
+}
+
+.todoDatePicker:hover {
+    background-color: var(--primary-dark-color);
+    color:#fff;
+    padding:0.5rem;
+    border-radius: 8px;
+}
+
+.todoList {
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#main-content {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 0;
+}
+
