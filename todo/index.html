@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+        <div class="wrapper">
+                <!-- SVG sprite (inlined so symbols are available to <use>) -->
+                <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+                    <symbol id="icon-reschedule" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd"/>
+                    </symbol>
+                    <symbol id="icon-delete" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z" clip-rule="evenodd" />
+                    </symbol>  
+                    <symbol id="icon-cancel" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+                    </symbol>
+                    <symbol id="icon-done" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8.603 3.799A4.49 4.49 0 0 1 12 2.25c1.357 0 2.573.6 3.397 1.549a4.49 4.49 0 0 1 3.498 1.307 4.491 4.491 0 0 1 1.307 3.497A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.549 3.397 4.491 4.491 0 0 1-1.307 3.497 4.491 4.491 0 0 1-3.497 1.307A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.397-1.549 4.49 4.49 0 0 1-3.498-1.306 4.491 4.491 0 0 1-1.307-3.498A4.49 4.49 0 0 1 2.25 12c0-1.357.6-2.573 1.549-3.397a4.49 4.49 0 0 1 1.307-3.497 4.49 4.49 0 0 1 3.497-1.307Zm7.007 6.387a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                    </symbol>
+                    <symbol id="icon-add-todo" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
+                    </symbol>
+                    <symbol id="icon-sun" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                    </symbol>
+                    <symbol id="icon-moon" viewBox="0 0 24 24" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                    </symbol>
+                </svg>
+
+    <section id="header" class="header">
+        <div class="heroSection">
+            <span class="heroText">Gogo</span>
+            <br>
+            <span>List your todo</span>
+        </div>
+        <div class="importExportSection">
+            <input class="themeToggleInput" id="theme-toggle" type="checkbox" role="switch" aria-label="Toggle color theme">
+            <label class="themeToggleButton" for="theme-toggle" title="Toggle color theme" aria-hidden="true">
+                <svg class="sunIcon" aria-hidden="true"><use href="#icon-sun"></use></svg>
+                <svg class="moonIcon" aria-hidden="true"><use href="#icon-moon"></use></svg>
+            </label>
+            |
+            <button class="linkButton">export</button> | <button class="linkButton">import</button>
+        </div>
+
+    </section>
+    <section id="main-content">
+        <div class="todoList">
+        <div class="dayGroup">
+            <h3 class="day">27/10</h3>
+            <div class="todoCard isDone">
+                <div class="todoTitle">Summarize feedback from the five pilot customers and send recommendations to product before Thursday's roadmap review</div>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="rescheduleBadge">2x RESCHEDULE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Confirm the catering count with the venue</div>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="overdueBadge">OVERDUE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Send the updated accessibility notes to the design team</div>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="rescheduleBadge">1x RESCHEDULE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="currentDayGroup">
+            <h3>26/10 <span class="todayBadge">TODAY</span> </h3> 
+            <div class="todoCard isDone">
+                <div class="todoTitle">
+                    Brainstorm on the new TODO app.
+                </div>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="rescheduleBadge">2x RESCHEDULE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Compare the latest accessibility report with last month's results and assign owners for the remaining keyboard-navigation issues</div>
+                <div class="todoCardMeta">
+                        <div class="badges">
+
+                        </div>
+                        <div class="actionSection">
+                            <button class="doneButton" aria-label="Done">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-done"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Done</span>
+                            </button>
+                            <button class="rescheduleButton" aria-label="Reschedule">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-reschedule"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Reschedule</span>
+                            </button>
+                            <button class="cancelButton" aria-label="Cancel">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-cancel"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Cancel</span>
+                            </button>
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Integrate designed page in actuall app</div>
+                                <div class="todoCardMeta">
+                        <div class="badges">
+                            <span class="overdueBadge">OVERDUE</span>
+                        </div>
+                        <div class="actionSection">
+                            <button class="doneButton" aria-label="Done">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-done"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Done</span>
+                            </button>
+                            <button class="rescheduleButton" aria-label="Reschedule">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-reschedule"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Reschedule</span>
+                            </button>
+                            <button class="cancelButton" aria-label="Cancel">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-cancel"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Cancel</span>
+                            </button>
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard isDone">
+                <div class="todoTitle">Prepare a handoff for the weekend on-call engineer with known alerts, open incidents, and escalation contacts</div>
+                    <div class="todoCardMeta">
+                        <div class="badges">
+                            <span class="rescheduleBadge">2x RESCHEDULE</span>
+                        </div>
+                        <div class="actionSection">
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Create GUI in plain HTML and CSS.</div>
+                <div class="todoCardMeta">
+                        <div class="badges">
+
+                        </div>
+                        <div class="actionSection">
+                            <button class="doneButton" aria-label="Done">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-done"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Done</span>
+                            </button>
+                            <button class="rescheduleButton" aria-label="Reschedule">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-reschedule"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Reschedule</span>
+                            </button>
+                            <button class="cancelButton" aria-label="Cancel">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-cancel"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Cancel</span>
+                            </button>
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Integrate designed page in actuall app</div>
+                                <div class="todoCardMeta">
+                        <div class="badges">
+                            <span class="overdueBadge">OVERDUE</span>
+                        </div>
+                        <div class="actionSection">
+                            <button class="doneButton" aria-label="Done">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-done"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Done</span>
+                            </button>
+                            <button class="rescheduleButton" aria-label="Reschedule">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-reschedule"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Reschedule</span>
+                            </button>
+                            <button class="cancelButton" aria-label="Cancel">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-cancel"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Cancel</span>
+                            </button>
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard isDone">
+                <div class="todoTitle">Brainstorm on the new TODO app.</div>
+                    <div class="todoCardMeta">
+                        <div class="badges">
+                            <span class="rescheduleBadge">2x RESCHEDULE</span>
+                        </div>
+                        <div class="actionSection">
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Create GUI in plain HTML and CSS.</div>
+                <div class="todoCardMeta">
+                        <div class="badges">
+
+                        </div>
+                        <div class="actionSection">
+                            <button class="doneButton" aria-label="Done">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-done"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Done</span>
+                            </button>
+                            <button class="rescheduleButton" aria-label="Reschedule">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-reschedule"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Reschedule</span>
+                            </button>
+                            <button class="cancelButton" aria-label="Cancel">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-cancel"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Cancel</span>
+                            </button>
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            <div class="todoCard">
+                <div class="todoTitle">Integrate designed page in actuall app</div>
+                <div class="todoCardMeta">
+                        <div class="badges">
+                            <span class="overdueBadge">OVERDUE</span>
+                        </div>
+                        <div class="actionSection">
+                            <button class="doneButton" aria-label="Done">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-done"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Done</span>
+                            </button>
+                            <button class="rescheduleButton" aria-label="Reschedule">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-reschedule"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Reschedule</span>
+                            </button>
+                            <button class="cancelButton" aria-label="Cancel">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-cancel"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Cancel</span>
+                            </button>
+                            <button class="deleteButton" aria-label="Delete">
+                                <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                                <span class="btnLabel" aria-hidden="true">Delete</span>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div class="dayGroup">
+            <h3 class="day">25/10</h3>
+            <div class="todoCard">
+                <span class="todoTitle">Audit the open support tickets and summarize repeat billing issues</span>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="rescheduleBadge">1x RESCHEDULE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <span class="todoTitle">Collect the print order</span>
+                <div class="todoCardMeta">
+                    <div class="badges"></div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <span class="todoTitle">Compare the latest accessibility report with last month's results and assign owners for the remaining keyboard-navigation issues</span>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="overdueBadge">OVERDUE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <span class="todoTitle">Schedule an equipment return with IT</span>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="rescheduleBadge">2x RESCHEDULE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <span class="todoTitle">Confirm the event start time with the speakers</span>
+                <div class="todoCardMeta">
+                    <div class="badges"></div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="todoCard">
+                <span class="todoTitle">Prepare a handoff for the weekend on-call engineer with known alerts, open incidents, and escalation contacts</span>
+                <div class="todoCardMeta">
+                    <div class="badges">
+                        <span class="overdueBadge">OVERDUE</span>
+                    </div>
+                    <div class="actionSection">
+                        <button class="deleteButton" aria-label="Delete">
+                            <svg class="icon" aria-hidden="true"><use href="#icon-delete"></use></svg>
+                            <span class="btnLabel" aria-hidden="true">Delete</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="addNoteSection">
+            <textarea class="addNote"></textarea>
+            <div class="addNoteSecondRow">
+                <input class="todoDatePicker" type="date"/>
+                <button class="addNoteButton">
+                    <svg class="icon"><use href="#icon-add-todo"></use></svg>
+                    <span class="btnLabel">Add todo</span>
+                </button>
+            </div>
+        </div>
+
+    </section>
+    <footer class="footer" id="footer">
+        <p>
+           created by <a href="https://github.com/dhiman1987" target="_blank">github@dhiman1987</a>
+        </p>
+    </footer>
+    </div>
+  </body>
+</html>
